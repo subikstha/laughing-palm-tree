@@ -1,4 +1,19 @@
-
+document.getElementById("btnPushSubscribe").addEventListener("click", async event => {
+    // Check if the browser supports push notifications
+    if('showNotification' in ServiceWorkerRegistration.prototype) {
+        const state = await Notification.requestPermission()
+        if(state === 'granted') {
+            // We can request Push Subscription
+            const swReg = await navigator.serviceWorker.ready;
+            const details = await swReg.pushManager.subscribe({
+                userVisibleOnly: true, 
+                key: 'KEY'
+            })
+        }
+    } else {
+        log("Web push is not available");
+    }
+})
 
 
 
