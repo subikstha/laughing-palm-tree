@@ -9,8 +9,8 @@ var webpush = require('web-push');
 
 // Get these keys using the web-push CLI only once
 // run `npx web-push generate-vapid-keys`
-var publicKey  = "TODO";
-var privateKey = "TODO";
+var publicKey  = "BFE5NFOjwN8UE19f0houXMgXzmrdnolpmB9qKEean6Qg3M1A6DvXKpXZlaD5KIIG-5wC6fSRlae5KEL9b3fSyHQ";
+var privateKey = "ncixLKjkwSpy8OT38rsuXMyx2JHMSUFBONvGt3fPlpA";
 
 webpush.setVapidDetails('mailto:youremail@yourdomain.org',
                          publicKey, privateKey);

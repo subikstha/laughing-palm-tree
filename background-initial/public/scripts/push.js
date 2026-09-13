@@ -7,7 +7,7 @@ document.getElementById("btnPushSubscribe").addEventListener("click", async even
             const swReg = await navigator.serviceWorker.ready;
             const details = await swReg.pushManager.subscribe({
                 userVisibleOnly: true, 
-                key: 'KEY'
+                applicationServerKey: 'BFE5NFOjwN8UE19f0houXMgXzmrdnolpmB9qKEean6Qg3M1A6DvXKpXZlaD5KIIG-5wC6fSRlae5KEL9b3fSyHQ'
             })
         }
     } else {
