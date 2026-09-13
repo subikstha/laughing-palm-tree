@@ -1,3 +1,5 @@
+navigator.serviceWorker.register("/sw.js");
+
 // Page Visibility API
 let backgroundInitialTimestamp;
 window.addEventListener("visibilitychange", event => {
