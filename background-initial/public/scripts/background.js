@@ -1,5 +1,15 @@
 // Page Visibility API
-
+let backgroundInitialTimestamp;
+window.addEventListener("visibilitychange", event => {
+    if(document.visibilityState == 'hidden') {
+        const now = new Date().toLocaleTimeString();
+        log(`Page is hidden at ${now}`);
+        backgroundInitialTimestamp = performance.now();
+    } else {
+        const timeElapsed = parseInt(performance.now() - backgroundInitialTimestamp);
+        log(`Page is visible after being hidden for ${timeElapsed/1000} seconds`);
+    }
+})
 
 // Beacon
 document.getElementById("btnBeacon").addEventListener("click", event => {
