@@ -18,6 +18,21 @@ document.getElementById("btnPushSubscribe").addEventListener("click", async even
             })
             console.log(details);
             log("Web Push subscribed")
+
+            fetch("/push/subscribe", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    endpoint: details.endpoint,
+                    keys: {
+                        // Getting the array buffer which is bytes and convertin it to base 64 string, so as to put it in the JSON
+                        auth: arrayBufferToBase64(details.getKey('auth')), 
+                        p256dh: arrayBufferToBase64(details.getKey('p256dh'))
+                    }
+                })
+            })
         }
     } else {
         log("Web push is not available");
