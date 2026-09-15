@@ -1,4 +1,11 @@
+if('showNotification' in ServiceWorkerRegistration.prototype) {
+    // This means web push is available in the browser
+    // Also we can check if the push manager is available in the window object
+    document.getElementById("push").style.display = "block";
+}
+
 document.getElementById("btnPushSubscribe").addEventListener("click", async event => {
+    console.log("Requesting permission for push notifications");
     // Check if the browser supports push notifications
     if('showNotification' in ServiceWorkerRegistration.prototype) {
         const state = await Notification.requestPermission()
@@ -9,6 +16,8 @@ document.getElementById("btnPushSubscribe").addEventListener("click", async even
                 userVisibleOnly: true, 
                 applicationServerKey: 'BFE5NFOjwN8UE19f0houXMgXzmrdnolpmB9qKEean6Qg3M1A6DvXKpXZlaD5KIIG-5wC6fSRlae5KEL9b3fSyHQ'
             })
+            console.log(details);
+            log("Web Push subscribed")
         }
     } else {
         log("Web push is not available");
